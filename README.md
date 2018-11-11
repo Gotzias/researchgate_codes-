@@ -1,5 +1,5 @@
 # researchgate_codes-
-this is about small codes i wrote, that answer questions posted by researchers in the research gate (rg).
+This is about small codes i wrote, that answer questions posted by researchers in the research gate (rg).
 
 These are usually bash and gnuplot scripts.
 
