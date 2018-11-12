@@ -1,7 +1,7 @@
-# so you have many files 'plot_i.txt', each having two columns x and y, 
+# so you have a set of files 'plot_i.txt', for i=1,2,.., each having two columns x and y, 
 # their first column x is exactly the same, their second y is different
 # you want to make a single file 'merged.txt' having the format xyyyy...y,
-# containing the y columns of these files:
+# containing all the y columns of the files:
 
 #!/bin/bash
 cat plot_1.txt > merged.txt
