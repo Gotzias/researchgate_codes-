@@ -15,11 +15,21 @@ label_position= "at graph 0.05,.92 font 'Times-Roman,14' front rotate by 0 tc rg
 # https://github.com/Gnuplotting/gnuplot-palettes 
 # by Hagen Wierstorf (here, i use rdgy.pal). You may ommit the next line!
 load 'rdgy.pal'
-
-YTICSL = "set format y '%g'; set autoscale y; set ytics scale 'minor' font ',8'; set ylabel 'variable y'  offset 3.5,0. font ',10' tc rgb '#606060 "
-XTICSL = "set format x '% g' ;set autoscale x; set xtics scale 'minor' font ',8' offset 0. 20 ;set xlabel 'variable, x' offset -5,0.5 font ',10' tc rgb '#606060'"
+# numer of colors in the palette (for other palettes you might use nc=5)
+nc=8
 
 ######################################################################################################################
+YTICSL = "set format y '%g'; set autoscale y; set ytics scale 'minor' font ',8'; set ylabel 'variable y'  offset 3.5,0. font ',10' tc rgb '#606060 "
+XTICSL = "set format x '% g' ;set autoscale x; set xtics scale 'minor' font ',8' offset 0. 20 ;set xlabel 'variable, x' offset -5,0.5 font ',10' tc rgb '#606060'"
+######################################################################################################################
+
 @XTICSL; @YTICSL
 set label 1 'Graph_label' @label_position
-plot for [i=0:20] 'plot_'.i.'.txt' u 1:2 with lines ls 1+7*i/20. lw 2 title "data".i
+plot for [i=0:20] 'plot_'.i.'.txt' u 1:2 with lines ls 1+(nc-1)*i/20. lw 2 title "data".i
+
+######################################################################################################################
+# I use linear interpolation for the linestyles (i.e, ls 1+7*i/20.). The palette i used lists 8 different colors (nc), 
+# This means that the colors index runs in [1..8], while i in [0..20]. Therefore, in the interpolation i used the scalar 'nc-1=7'.
+# If for example the palette of your choice lists 5 colours, which is more common, set nc=5
+# Hint: The Wierstorf pallettes also output the gradient between the successive colors 
+#####################################################################################################################
