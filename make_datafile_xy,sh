@@ -1,0 +1,14 @@
+#!/bin/bash
+###########################################################################################################
+# Paste two columns from different files to a new file
+# the script is useful if you want to plot the j_th column of 2nd file vs the i_th column of the 1st file
+# in the examble, the input files are 'data1.dat' and dat2.dat' the output file is 'output.dat'
+# i use column 15 from the first file and column 10 from the second (i.e, -f15 and -f10)
+# i use comma as delimeter, if you want to use space replace d',' with d' ', in the paste command.
+###########################################################################################################
+File1='data1.dat'
+File2='data2.dat'
+File3='output.dat'
+
+paste -d ',' <(cut -d ',' -f15 $File1) <(cut -d ',' -f10 $File2) > $File3 
+
