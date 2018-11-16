@@ -30,6 +30,6 @@ plot for [i=0:20] 'plot_'.i.'.txt' u 1:2 with lines ls 1+(nc-1)*i/20. lw 2 title
 ######################################################################################################################
 # I use linear interpolation for the linestyles (i.e, ls 1+7*i/20.). The palette i used lists 8 different colors (nc), 
 # This means that the colors index runs in [1..8], while i in [0..20]. Therefore, in the interpolation i used the scalar 'nc-1=7'.
-# If for example the palette of your choice lists 5 colours, which is more common, set nc=5
+# If for example the palette of another choice lists 5 colours, set nc=5. This value is more common in gnuplot palettes.
 # Hint: The Wierstorf pallettes also output the gradient between the successive colors 
 #####################################################################################################################
